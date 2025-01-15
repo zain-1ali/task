@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'SFRounded';
+  src: url('./fonts/SFRounded.otf') format('opentype'); 
+  
+}
+@font-face {
+  font-family: 'SFPro';
+  src: url('./fonts/sfPro.OTF') format('opentype'); 
+  
+}
