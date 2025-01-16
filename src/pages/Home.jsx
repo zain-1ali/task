@@ -4,10 +4,13 @@ import images from "../assets/images";
 import Heading from "../components/ui/Heading";
 import Text from "../components/ui/Text";
 import Button from "../components/ui/Button";
+import PrimaryButton from "../components/PrimaryButton";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
-    <div className="bg-black h-[100vh] w-[100%] flex flex-col items-center">
+    <div className="bg-black h-[100dvh] w-[100%] flex flex-col items-center">
       <ImageCard
         imageSrc={images?.images.bee}
         boxClasses="h-[222px] w-[90%] bg-primary flex justify-center items-center rounded-[16px] mt-[35px]"
@@ -30,9 +33,11 @@ const Home = () => {
         children="NO wasps allowed in The Hive."
         className="font-b5 text-[17px] text-[#DEDEDE] mt-[16px] font-primary"
       />
-      <Button
-        className="bg-primary outline-none border-none h-[50px] w-[90%] rounded-[10px] text-[17px] text-black font-b6 mt-[26px] font-primary"
-        children="Earn POLLEN"
+      <PrimaryButton
+        width="full"
+        colorType="primary"
+        text="Earn POLLEN"
+        onClick={() => navigate("/streak")}
       />
     </div>
   );

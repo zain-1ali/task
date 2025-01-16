@@ -9,32 +9,43 @@ const AppLayout = () => {
   return (
     <Layout
       style={{
-        minHeight: "100vh",
+        minHeight: "100dvh",
         width: "100vw",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+
+        // overFlow: "hidden",
       }}
     >
-      <Layout style={{ maxWidth: "430px", width: "100%", height: "100%" }}>
-        <Layout>
-          <Content>
-            <div id="detail">
-              <Outlet />
-            </div>
-          </Content>
-          {location?.pathname != "/" && (
-            <Footer
-              style={{
-                width: "100%",
-                height: "82px",
-                padding: "0px",
-              }}
-            >
-              <Appfooter />
-            </Footer>
-          )}
-        </Layout>
+      <Layout
+        style={{
+          maxWidth: "430px",
+          width: "100%",
+          height: "100dvh",
+        }}
+      >
+        {/* <Layout> */}
+        {/* <Content> */}
+        <div
+          id="detail"
+          style={{ height: location?.pathname != "/" ? "88%" : "100%" }}
+        >
+          <Outlet />
+        </div>
+        {/* </Content> */}
+        {location?.pathname != "/" && (
+          <Footer
+            style={{
+              width: "100%",
+              height: "12%",
+              padding: "0px",
+            }}
+          >
+            <Appfooter />
+          </Footer>
+        )}
+        {/* </Layout> */}
       </Layout>
     </Layout>
   );

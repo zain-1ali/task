@@ -5,13 +5,9 @@ const componentMap = {
   // home
   "/": lazy(() => import("../pages/Home")),
   "/streak": lazy(() => import("../pages/Streak")),
-
-  // driver stack
-  //   "/driver": lazy(() => import("../pages/driver/DriverStack")),
-  //   "/driverDetail/:id": lazy(() => import("../pages/driver/driverDetail")),
-  //   "/editDriverDetail/:id": lazy(() =>
-  //     import("../pages/driver/editDriverDetail")
-  //   ),
+  "/invite": lazy(() => import("../pages/Invite")),
+  "/thehive": lazy(() => import("../pages/TheHive")),
+  "/you": lazy(() => import("../pages/You")),
 };
 
 const LazyComponent = ({ path }) => {

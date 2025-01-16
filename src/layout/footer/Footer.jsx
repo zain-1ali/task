@@ -20,7 +20,7 @@ const Appfooter = () => {
       name: "The Hive",
       icon: images.icons.globe,
       highlightIcon: images.icons.globeSelect,
-      link: "/hive",
+      link: "/thehive",
     },
     {
       name: "You",
@@ -31,7 +31,7 @@ const Appfooter = () => {
   ];
   const pathname = window.location.pathname;
   return (
-    <div className="w-[100%] h-[82px] bg-secondary flex justify-around items-center">
+    <div className=" w-[100%] h-[100%]  bottom-0 bg-secondary flex justify-around items-center">
       {navItems?.map((icon, i) => {
         return (
           <NavItem
