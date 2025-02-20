@@ -1,14 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageCard from "../components/ImageCard";
 import Heading from "../components/ui/Heading";
 import images from "../assets/images";
 import PrimaryWidgets from "../components/PrimaryWidgets";
 import PrimaryButton from "../components/PrimaryButton";
+import { handleInviteClick } from "../../utils/telegramShare";
+import { getHistory } from "../api/history";
 
 const You = () => {
-  const [selectedCoinType, setSelectedCoinType] = useState("nectar");
+  const [selectedCoinType, setSelectedCoinType] = useState("pollen");
+  const tg = window.Telegram.WebApp;
+  const [historyData, setHistoryData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  tg.ready();
+  const referralUrl = `http://t.me/HivedemoBot?start=ref_${tg?.initDataUnsafe?.user?.id}`;
+  // const referralUrl = `http://t.me/HivedemoBot?start=ref_8141119319`;
+
+  useEffect(() => {
+    const handleGetHistory = () => {
+      setLoading(true);
+      getHistory(
+        // "8141119319"
+        tg?.initDataUnsafe?.user?.id
+      )
+        .then((res) => {
+          setHistoryData(res?.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    };
+
+    // tg.trackEvent("you_page_viewed");
+    handleGetHistory();
+  }, []);
+
+  console.log(historyData);
+
   return (
-    <div className="bg-black  h-[100%] w-[100%] flex flex-col items-center">
+    <div className="bg-[#0f0f0f]  h-[100%] w-[100%] flex flex-col items-center overflow-y-scroll pb-4">
       <ImageCard
         boxClasses="w-[100%] flex justify-center items-center"
         imageClasses="w-[113px] h-[120px] mt-[35px]"
@@ -21,7 +54,7 @@ const You = () => {
       />
       <Heading
         level="h2"
-        className="text-white font-accent font-b6 text-[17px] tracking-[3px] "
+        className="text-white font-secondary font-b6 text-[17px] tracking-[-0.4px] "
         children="Hive hierarchy"
       />
       <PrimaryWidgets
@@ -40,7 +73,7 @@ const You = () => {
           width="full"
           colorType="primary"
           text="Invite Bees"
-          onClick={() => {}}
+          onClick={() => handleInviteClick(referralUrl)}
         />
       </div>
 
@@ -63,6 +96,36 @@ const You = () => {
           onClick={() => setSelectedCoinType("nectar")}
         />
       </div>
+
+      {selectedCoinType === "pollen" ? (
+        <>
+          {historyData?.map(
+            (item, index) =>
+              item?.type === "pollens" && (
+                <PrimaryWidgets
+                  heading={"+ " + item?.reward}
+                  text={item?.userDetails?.[0]?.firstName + " " + item?.message}
+                  key={index}
+                  className="mt-[9px]"
+                />
+              )
+          )}
+        </>
+      ) : (
+        <>
+          {historyData?.map(
+            (item, index) =>
+              item?.type != "pollens" && (
+                <PrimaryWidgets
+                  heading={"+ " + item?.reward}
+                  text={item?.message}
+                  key={index}
+                  className="mt-[9px]"
+                />
+              )
+          )}
+        </>
+      )}
     </div>
   );
 };

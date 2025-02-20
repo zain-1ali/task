@@ -15,7 +15,7 @@ const NavItem = ({ icon, icon2, name, path, isSelcted }) => {
         <Image src={isSelcted ? icon2 : icon} className="h-[19px]" />
       </div>
       <Text
-        className={`font-b6 text-[13px] mt-1 ${
+        className={`font-b6 text-[13px] mt-1 roboto tracking-[0.1px] ${
           isSelcted ? "text-primary" : "text-[#78797E]"
         } `}
         children={name}

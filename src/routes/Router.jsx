@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       <AppLayout />
       // </PrivateRoute>
     ),
-    errorElement: <div>Something wen wrong</div>,
+    errorElement: <div>Something went wrong</div>,
     children: [
       // dashboard route
       {

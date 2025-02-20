@@ -2,7 +2,7 @@ import React from "react";
 import Heading from "./ui/Heading";
 import Text from "./ui/Text";
 
-const PollenRewardsCard = ({rewardTaken}) => {
+const PollenRewardsCard = ({rewardTaken,day}) => {
   const rewardData = [
     {
       day: "Day 1",
@@ -38,11 +38,11 @@ const PollenRewardsCard = ({rewardTaken}) => {
       {rewardData?.map((elm, i) => {
         return (
           <div
-            className={`bg-secondary h-[68px] flex justify-between items-center px-4 ${
+            className={`bg-secondary h-[68px] flex justify-between ${i===0 ? "items-center":"items-start py-3"}  px-4 ${
               elm?.day === "Day 1"
-                ? "w-[100%] rounded-t-[16px]  "
-                : `w-[32.8%]  ${i === 4 && "rounded-bl-[16px]"} ${
-                    i === 6 && "rounded-br-[16px]"
+                ? "w-[100%] rounded-t-[16px] mb-[1px]"
+                : `w-[32.8%]  ${i === 4 && "rounded-bl-[16px] mt-[1px]"} ${ i===5 ? "mt-[1px]":"" } ${
+                    i === 6 && "rounded-br-[16px] mt-[1px]"
                   }`
             }`}
           >
@@ -56,7 +56,9 @@ const PollenRewardsCard = ({rewardTaken}) => {
                 className="text-[#AAAAAA] font-primary"
               />
             </div>
-            {i === 0 && <Text children="Today" className={`font-primary font-[400] text-[17px] ${rewardTaken ? "text-white":"text-primary" } `} />}
+            {day===i+1 &&
+             <Text children="Today" className={`font-primary font-[400] ${i===0 ? "text-[17px]":"text-[12px] mt-[2px]"}  ${rewardTaken ? "text-white":"text-primary" } `} />
+              }
           </div>
         );
       })}

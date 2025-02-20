@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import Loading from "../components/Loading";
 // import Loading from "../components/loading/Loading";
 
 const componentMap = {
@@ -16,7 +17,7 @@ const LazyComponent = ({ path }) => {
     return <div>Component not found</div>;
   }
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <Component />
     </Suspense>
   );

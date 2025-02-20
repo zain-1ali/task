@@ -12,10 +12,16 @@ export default {
 
       //font family
       fontFamily: {
-        primary: ['"SFPro", sans-serif'], 
+        primary: ['"SFPro", sans-serif'],
+        primaryMedium: ['"SFProMedium", sans-serif'],
+        secondary: ['"SFProSemiBold",sans-serif'],
         accent: ['"SFRounded", sans-serif'],
       },
 
+
+
+
+      
       // font sizes
       fontSize: {
         h1: "40px",

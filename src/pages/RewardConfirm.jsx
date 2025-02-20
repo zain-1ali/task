@@ -5,9 +5,9 @@ import Heading from "../components/ui/Heading";
 import Text from "../components/ui/Text";
 import PrimaryButton from "../components/PrimaryButton";
 
-const RewardConfirm = ({ handleRewardTaken }) => {
+const RewardConfirm = ({ handleRewardTaken, claimedPollens }) => {
   return (
-    <div className="bg-primary h-[100dvh] w-[100%] flex flex-col items-center">
+    <div className="bg-primary h-[100dvh] w-[100%] flex flex-col items-center overflow-y-scroll ">
       <ImageCard
         imageSrc={images?.images.gift}
         boxClasses="h-[200px] w-[90%] bg-secondary flex justify-center items-center rounded-[16px] mt-[35px]"
@@ -15,12 +15,12 @@ const RewardConfirm = ({ handleRewardTaken }) => {
       />
       <Heading
         level="h2"
-        className="text-secondary font-accent font-b7 text-[46px] tracking-[3px] mt-4"
-        children="+ 500 Pollen"
+        className="text-secondary font-accent font-b7 text-[46px] tracking-[1px] mt-4"
+        children={`+ ${claimedPollens} Pollen`}
       />
       <Text
         children="352 POLLEN until you become a queen"
-        className="text-secondary font-primary font-b5 text-[17px] mt-[30px]"
+        className="text-secondary font-primary font-b6 text-[17px] mt-[30px]"
       />
       <div className="w-[100%] flex justify-center mt-4">
         <PrimaryButton
