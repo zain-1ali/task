@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import LazyComponent from "./LazyComponent";
 import AppLayout from "../layout/Layout";
-// import AppLayout from "../layout/Layout";
-// import LazyComponent from "./LazyComponent";
 // import ErrorScreen from "../pages/error/ErrorScreen";
 // import PrivateRoute from "./PrivateRoute";
 
@@ -10,39 +8,20 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      // Uncomment PrivateRoute when it's ready
-      // <PrivateRoute>
       <AppLayout />
-      // </PrivateRoute>
     ),
     errorElement: <div>Something went wrong</div>,
     children: [
       // dashboard route
       {
-        path: "/",
-        element: <LazyComponent path="/" />,
+        path: "/dashboard",
+        element: <LazyComponent path="/dashboard" />,
       },
       {
-        path: "/streak",
-        element: <LazyComponent path="/streak" />,
-      },
-      {
-        path: "/invite",
-        element: <LazyComponent path="/invite" />,
-      },
-      {
-        path: "/thehive",
-        element: <LazyComponent path="/thehive" />,
-      },
-      {
-        path: "/you",
-        element: <LazyComponent path="/you" />,
+        path: "/notfound",
+        element: <LazyComponent path="/notfound" />,
       },
     ],
   },
-  // auth route
-  //   {
-  //     path: "/login",
-  //     element: <LazyComponent path="/login" />,
-  //   },
+
 ]);

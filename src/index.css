@@ -2,38 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@font-face {
-  font-family: 'SFRounded';
-  src: url('./fonts/SFRoundedBold.ttf') format('opentype'); 
-  
-}
-@font-face {
-  font-family: 'SFPro';
-  src: url('./fonts/sfPro.OTF') format('opentype'); 
-  
-}
-
-@font-face {
-  font-family: 'SFProSemiBold';
-  src: url('./fonts/SFSemibold.otf') format('opentype'); 
-  
-}
-
-@font-face {
-  font-family: 'SFProMedium';
-  src: url('./fonts/SFProMedium.otf') format('opentype'); 
-  
-}
-
-.roboto{
+.roboto {
   font-family: "Roboto", sans-serif;
 }
 
 
 *::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
+  display: none;
   -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 
 }

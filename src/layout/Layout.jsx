@@ -1,53 +1,31 @@
-import { Layout } from "antd";
+import { Layout, Menu } from "antd";
 import { Outlet, useLocation } from "react-router-dom";
-import Appfooter from "./footer/footer";
+import Sidebar from "./sidebar/Sidebar";
+import Header from "./header/Header";
 
-const { Content, Footer } = Layout;
+const {  Sider, Content } = Layout;
 
 const AppLayout = () => {
   const location = useLocation();
-  return (
-    <Layout
-      style={{
-        minHeight: "100dvh",
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
 
-        // overFlow: "hidden",
-      }}
-    >
-      <Layout
-        style={{
-          maxWidth: "430px",
-          width: "100%",
-          height: "100dvh",
-        }}
-      >
-        {/* <Layout> */}
-        {/* <Content> */}
-        <div
-          id="detail"
-          style={{ height: location?.pathname != "/" ? "88%" : "100%" }}
+  return (
+    <Layout style={{ maxHeight: "100vh" }}>
+<Sider>
+     <Sidebar/>
+</Sider>
+      <Layout>
+        {/* Header */}
+  <Header/>
+
+        {/* Main content */}
+        <Content 
+        style={{ marginLeft: "30px", padding: 24, background: "#FAFCFFf" }}
         >
           <Outlet />
-        </div>
-        {/* </Content> */}
-        {location?.pathname != "/" && (
-          <Footer
-            style={{
-              width: "100%",
-              height: "12%",
-              padding: "0px",
-            }}
-          >
-            <Appfooter />
-          </Footer>
-        )}
-        {/* </Layout> */}
+        </Content>
       </Layout>
     </Layout>
   );
 };
+
 export default AppLayout;

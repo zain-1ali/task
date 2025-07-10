@@ -9,19 +9,18 @@ export default {
         primary: "#FFBC13",
         secondary: "#212121",
       },
+      screens: {
+        "sm-Mob": "390px",
+      },
 
       //font family
       fontFamily: {
-        primary: ['"SFPro", sans-serif'],
-        primaryMedium: ['"SFProMedium", sans-serif'],
-        secondary: ['"SFProSemiBold",sans-serif'],
-        accent: ['"SFRounded", sans-serif'],
+        primary:["Poppins", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"],
+        secondary: ['"Inter",sans-serif'],
+
       },
 
-
-
-
-      
       // font sizes
       fontSize: {
         h1: "40px",
