@@ -25,7 +25,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <aside className="w-[250px] bg-white max-h-screen h-[100%] border-r flex flex-col justify-between py-6 px-4">
+    <aside className="w-[250px] bg-white max-h-screen overflow-y-scroll h-[100%] border-r flex flex-col justify-between py-6 px-4">
       <div className="flex flex-col items-center">
         <h1 className=" font-bold mb-8 font-primary text-[41px]">Efandex</h1>
 
